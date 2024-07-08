@@ -4,6 +4,7 @@ class custom_next_button extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+
       height: 34,
       width: 108,
       child: ElevatedButton(
@@ -22,3 +23,4 @@ class custom_next_button extends StatelessWidget {
     );
   }
 }
+
