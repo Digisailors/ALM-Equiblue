@@ -26,10 +26,10 @@ class _registration_cardState extends State<registration_card> {
         });
       },
       child: Padding(
-        padding: const EdgeInsets.all(5.0),
+        padding: const EdgeInsets.only(left: 8.0, right: 8.0),
         child: SizedBox(
           height: 60,
-          width: 320,
+          width: 383,
           child: GestureDetector(
             onTap: () {
               widget.ontap();
@@ -66,5 +66,3 @@ class _registration_cardState extends State<registration_card> {
     );
   }
 }
-
-

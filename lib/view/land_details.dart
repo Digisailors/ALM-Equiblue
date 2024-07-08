@@ -1,4 +1,5 @@
 import 'package:equiblue/widgets/dropdown.dart';
+import 'package:equiblue/widgets/heading.dart';
 import 'package:equiblue/widgets/textformfield.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -28,7 +29,7 @@ class _LandDetailsState extends State<LandDetails> {
         ),
         title: Row(
           children: [
-            Image.asset("assets/equiblue_logo.png"),
+            Image.asset("assets/images/equiblue_logo.png"),
             Text(
               "EQUI",
               style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),
@@ -46,76 +47,72 @@ class _LandDetailsState extends State<LandDetails> {
         shadowColor: Colors.white,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 0.0, right: 0.0),
-              child: Row(
-                children: [
-                  Text("Land Details", style: TextStyle(fontSize: 16.0)),
-                  Spacer(),
-                  Image.asset(
-                    "assets/topicon.png",
-                    height: 27,
-                    width: 27,
-                  )
-                ],
+        padding: EdgeInsets.all(12.0),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              heading(text: "Land Details",),
+              SizedBox(
+                height: 20.0,
               ),
-            ),
-            SizedBox(
-              height: 20.0,
-            ),
-            Textformfield(
-              hintText: '5',
-              controller: plotcontroller,
-              text: 'Plot Number',
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-            Textformfield(
-              hintText: "5",
-              controller: landcontroller,
-              text: 'Area of Land',
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-            dropdown(
-              items: ["Grassland", 'Grass'],
-              text: 'Land Use Type',
-            ),
-            Textformfield(
-              hintText: "20 Ha",
-              controller: watersourcecontroller,
-              text: 'Nearby Water Source',
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-            Textformfield(
-              hintText: "20 m",
-              controller: distancecontroller,
-              text: 'Distance from the Water Source',
-            ),
-            Spacer(),
-            Container(
-                height: 34,
-                width: 108,
-                child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
+              Textformfield(
+                hintText: '5',
+                controller: plotcontroller,
+                text: 'Plot Number',
+               image: Image.asset("assets/images/globe.png"),
+              ),
+              SizedBox(
+                height: 10.0,
+              ),
+              Textformfield(
+                hintText: "5",
+                controller: landcontroller,
+                text: 'Area of Land',
+               image: Image.asset("assets/images/globe.png"),
+              ),
+              SizedBox(
+                height: 10.0,
+              ),
+              dropdown(
+                items: ["Grassland", 'Grass'],
+                text: 'Land Use Type',
+                hintText: 'Grassland',
+              ),
+              Textformfield(
+                hintText: "20 Ha",
+                controller: watersourcecontroller,
+                text: 'Nearby Water Source',
+               image: Image.asset("assets/images/globe.png"),
+              ),
+              SizedBox(
+                height: 10.0,
+              ),
+              Textformfield(
+                hintText: "20 m",
+                controller: distancecontroller,
+                text: 'Distance from the Water Source',
+               image: Image.asset("assets/images/globe.png"),
+              ),
+              SizedBox(
+                height: 30.0,
+              ),
+              Container(
+                  height: 34,
+                  width: 108,
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        backgroundColor: const Color.fromRGBO(24, 104, 199, 1),
                       ),
-                      backgroundColor: const Color.fromRGBO(24, 104, 199, 1),
-                    ),
-                    onPressed: () {},
-                    child: Text(
-                      "Next",
-                      style: TextStyle(color: Colors.white),
-                    )))
-          ],
+                      onPressed: () {},
+                      child: Text(
+                        "Next",
+                        style: TextStyle(color: Colors.white),
+                      )))
+            ],
+          ),
         ),
       ),
     );

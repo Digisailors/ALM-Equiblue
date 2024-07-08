@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 class dropdown extends StatefulWidget {
   final List<String> items;
   final String text;
+  final String hintText;
 
   dropdown({
     super.key,
     required this.items,
     required this.text,
+    required this.hintText,
   });
 
   @override
@@ -15,7 +17,6 @@ class dropdown extends StatefulWidget {
 }
 
 class _dropdownState extends State<dropdown> {
-  final List<String> dropdownItems = ['Grassland', '2'];
   String? dropdown;
   @override
   Widget build(BuildContext context) {
@@ -34,18 +35,24 @@ class _dropdownState extends State<dropdown> {
           height: 5.0,
         ),
         DropdownButtonFormField<String>(
-            value: dropdown,
-            decoration: InputDecoration(border: OutlineInputBorder()),
-            hint: Text(""),
-            onChanged: (String? newvalue) => setState(() {
-                  dropdown = newvalue!;
-                }),
-            items: dropdownItems.map((String value) {
-              return DropdownMenuItem<String>(
-                value: value,
-                child: Text(value),
-              );
-            }).toList()),
+          value: dropdown,
+          decoration: InputDecoration(border: OutlineInputBorder()),
+          hint: Text(widget.hintText),
+          onChanged: (String? newvalue) => setState(() {
+            dropdown = newvalue!;
+          }),
+          items: widget.items.map((String value) {
+            return DropdownMenuItem<String>(
+              value: value,
+              child: Text(value),
+            );
+          }).toList(),
+          icon: Icon(
+            Icons.arrow_drop_down_outlined,
+            size: 30.0,
+            // color: Colors.blue,
+          ),
+        ),
       ],
     );
   }
