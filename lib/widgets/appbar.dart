@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Customappbar extends StatelessWidget {
+class Customappbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -10,7 +10,7 @@ class Customappbar extends StatelessWidget {
       ),
       title: Row(
         children: [
-          Image.asset("assets/equiblue_logo.png"),
+          Image.asset("assets/images/equiblue_logo.png"),
           Text(
             "EQUI",
             style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),
@@ -28,4 +28,7 @@ class Customappbar extends StatelessWidget {
       shadowColor: Colors.white,
     );
   }
+
+  @override
+  Size get preferredSize => Size.fromHeight(74.0);
 }

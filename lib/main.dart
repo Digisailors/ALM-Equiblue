@@ -1,3 +1,5 @@
+import 'package:equiblue/view/grazing_details.dart';
+import 'package:equiblue/view/planting_details.dart';
 import 'package:equiblue/view/land_details.dart';
 import 'package:equiblue/view/nutrient_details.dart';
 import 'package:equiblue/view/registration_details.dart';
@@ -12,6 +14,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: NutrientDetails());
+    return MaterialApp(home: LandDetails());
   }
 }

@@ -1,5 +1,8 @@
+import 'package:equiblue/widgets/custom_next_button.dart';
 import 'package:equiblue/widgets/appbar.dart';
 import 'package:equiblue/widgets/dropdown.dart';
+import 'package:equiblue/widgets/heading.dart';
+import 'package:equiblue/widgets/textformfield.dart';
 import 'package:flutter/material.dart';
 
 class NutrientDetails extends StatefulWidget {
@@ -10,6 +13,8 @@ class NutrientDetails extends StatefulWidget {
 }
 
 class _NutrientDetailsState extends State<NutrientDetails> {
+  TextEditingController timecontroller = TextEditingController();
+  TextEditingController ratiocontroller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +27,7 @@ class _NutrientDetailsState extends State<NutrientDetails> {
         ),
         title: Row(
           children: [
-            Image.asset("assets/equiblue_logo.png"),
+            Image.asset("assets/images/equiblue_logo.png"),
             Text(
               "EQUI",
               style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),
@@ -40,33 +45,51 @@ class _NutrientDetailsState extends State<NutrientDetails> {
         shadowColor: Colors.white,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 0.0, right: 0.0),
-              child: Row(
-                children: [
-                  Text("Land Details", style: TextStyle(fontSize: 16.0)),
-                  Spacer(),
-                  Image.asset(
-                    "assets/topicon.png",
-                    height: 27,
-                    width: 27,
-                  )
-                ],
+        padding: const EdgeInsets.all(12.0),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              heading(
+                text: "Nutrient Management Details",
               ),
-            ),
-            SizedBox(
-              height: 20.0,
-            ),
-            dropdown(
-                items: ['Organic', 'Inorganic'], text: "Types of Fertilizers"),
-                SizedBox(height: 10.0),
-            dropdown(items: ['items'], text: "NPR Ratio"),
-            dropdown(items: [''], text: "Timing of Fertilizers"),
-            dropdown(items: [''], text: "Current USage of Fertilizers")
-          ],
+              SizedBox(
+                height: 20.0,
+              ),
+              dropdown(
+                items: ['Organic', 'Inorganic'],
+                text: "Types of Fertilizers",
+                hintText: 'Organic',
+              ),
+              SizedBox(height: 10.0),
+              Textformfield(
+                hintText: "5:7:8",
+                controller: ratiocontroller,
+                text: "NPK Ratio",
+                image: Image.asset("assets/images/nutrient_icon.png"),
+              ),
+              SizedBox(height: 10.0),
+              Textformfield(
+                hintText: 'Weekly',
+                controller: timecontroller,
+                text: "Timing of Fertilizers",
+                image: Image.asset("assets/images/nutrient_icon.png"),
+              ),
+              SizedBox(height: 10.0),
+              dropdown(
+                items: ['Balanced Fertilization', 'Unbalanced Fertilization'],
+                text: "Current Fertilizer Use Practices",
+                hintText: 'Balanced Fertilizer',
+              ),
+              SizedBox(height: 10.0),
+              dropdown(
+                items: ['Low', 'Medium', 'High'],
+                text: "Organic Matter Content",
+                hintText: 'Low(1-2%)',
+              ),
+              SizedBox(height: 20.0),
+              custom_next_button()
+            ],
+          ),
         ),
       ),
     );
