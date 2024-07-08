@@ -1,7 +1,10 @@
+import 'package:equiblue/widgets/appbar.dart';
+import 'package:equiblue/widgets/custom_next_button.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 part "../widgets/textformfield.dart";
-
+part "../widgets/heading.dart";
 
 class Ownershipform extends StatefulWidget {
   const Ownershipform({super.key});
@@ -11,6 +14,17 @@ class Ownershipform extends StatefulWidget {
 }
 
 class _OwnershipformState extends State<Ownershipform> {
+  void openFilePicker() async {
+    FilePickerResult? result = await FilePicker.platform.pickFiles();
+
+    if (result != null) {
+      setState(() {
+        Filepath = result.files.single.path!;
+      });
+    }
+  }
+
+  String? Filepath;
   String? selectedvalue;
   List<String> dropdownvalue = ['Own Land'];
   TextEditingController _namecontroller = TextEditingController();
@@ -20,41 +34,20 @@ class _OwnershipformState extends State<Ownershipform> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          leading: Icon(Icons.menu),
-          title: Row(
-            children: [
-              Image.asset("assets/images/equiblue_logo 1.png"),
-              Text("EQUIBLUE")
-            ],
-          ),
-          toolbarHeight: 74.0,
-          shadowColor: Colors.white,
-        ),
+        appBar: Customappbar(),
         body: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(12.0),
             child: Column(
               children: [
-                Padding(
-                  padding:
-                      const EdgeInsets.only(left: 15.0, top: 28.0, right: 15.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Ownership Details",
-                        style: TextStyle(fontSize: 14.0),
-                      ),
-                      Image.asset("assets/images/language_translator.png")
-                    ],
-                  ),
-                ),
-                SizedBox(height: 40.0),
+                heading(),
+                SizedBox(height: 20.0),
                 Image.asset("assets/images/uploadimage.png"),
                 SizedBox(height: 12.0),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    openFilePicker();
+                  },
                   style: ElevatedButton.styleFrom(
                       minimumSize: Size(150, 43),
                       shape: RoundedRectangleBorder(
@@ -70,69 +63,59 @@ class _OwnershipformState extends State<Ownershipform> {
                 ),
                 textformfield(
                   controller: _namecontroller,
+                  imagepath: Image.asset("assets/images/ownershipform.png"),
                 ),
                 SizedBox(height: 10.0),
                 textformfield(
                   controller: _locationcontroller,
                   text: "Location",
+                  imagepath: Image.asset("assets/images/ownershipform.png"),
                 ),
                 SizedBox(height: 10.0),
                 textformfield(
                   controller: _occupationcontroller,
                   text: "Occupation",
+                  imagepath: Image.asset("assets/images/ownershipform.png"),
                 ),
                 SizedBox(height: 10.0),
-                Padding(
-                  padding: const EdgeInsets.only(left: 15.0, right: 15.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      RichText(
-                        text: TextSpan(
-                            text: "Ownership",
-                            style: TextStyle(color: Colors.black),
-                            children: <TextSpan>[
-                              TextSpan(
-                                  text: "*",
-                                  style: TextStyle(color: Colors.red))
-                            ]),
-                      ),
-                      DropdownButtonFormField<String>(
-                          value: selectedvalue,
-                          hint: Text('Choose an option'),
-                          items: dropdownvalue.map((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
-                          onChanged: (String? newValue) {
-                            setState(() {
-                              selectedvalue = newValue;
-                            });
-                          },
-                          decoration:
-                              InputDecoration(border: OutlineInputBorder())),
-                    ],
-                  ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    RichText(
+                      text: TextSpan(
+                          text: "Ownership",
+                          style: TextStyle(color: Colors.black),
+                          children: <TextSpan>[
+                            TextSpan(
+                                text: "*", style: TextStyle(color: Colors.red))
+                          ]),
+                    ),
+                    DropdownButtonFormField<String>(
+                        value: selectedvalue,
+                        hint: Text('Choose an option'),
+                        items: dropdownvalue.map((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            selectedvalue = newValue;
+                          });
+                        },
+                        decoration:
+                            InputDecoration(border: OutlineInputBorder())),
+                  ],
                 ),
                 SizedBox(height: 10.0),
                 textformfield(
                   controller: _incomecontroller,
                   text: "Income",
+                  imagepath: Image.asset("assets/images/ownershipform.png"),
                 ),
                 SizedBox(height: 40.0),
-                ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                        minimumSize: Size(108, 43),
-                        backgroundColor: Colors.blue,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12.0))),
-                    child: Text(
-                      "Next",
-                      style: TextStyle(color: Colors.white, fontSize: 14.0),
-                    )),
+                Center(child: custom_next_button())
               ],
             ),
           ),

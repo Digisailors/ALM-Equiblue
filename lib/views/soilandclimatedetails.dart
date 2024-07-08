@@ -1,10 +1,10 @@
 import 'package:equiblue/views/ownershipform.dart';
+import 'package:equiblue/widgets/appbar.dart';
+import 'package:equiblue/widgets/custom_next_button.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:file_picker/file_picker.dart';
-
-
-
 
 class Soilandclimatedetails extends StatefulWidget {
   const Soilandclimatedetails({super.key});
@@ -14,8 +14,6 @@ class Soilandclimatedetails extends StatefulWidget {
 }
 
 class SoilandclimatedetailsState extends State<Soilandclimatedetails> {
-  String? selectedvalue;
-  List<String> dropdownvalue = ['Own Land'];
   String? Filepath;
   TextEditingController _rainfallcontroller = TextEditingController();
   TextEditingController _temperaturecontroller = TextEditingController();
@@ -39,101 +37,86 @@ class SoilandclimatedetailsState extends State<Soilandclimatedetails> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          leading: Icon(Icons.menu),
-          title: Row(
-            children: [
-              Image.asset("assets/images/equiblue_logo 1.png"),
-              Text("EQUIBLUE")
-            ],
-          ),
-          toolbarHeight: 74.0,
-          shadowColor: Colors.white,
-        ),
+        appBar: Customappbar(),
         body: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(12.0),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding:
-                      const EdgeInsets.only(left: 15.0, top: 28.0, right: 15.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Soil and Climate Details",
-                        style: TextStyle(fontSize: 14.0),
-                      ),
-                      Image.asset("assets/images/language_translator.png")
-                    ],
-                  ),
-                ),
+                heading(text: "Soil and Climate Details"),
                 SizedBox(
-                  height: 40.0,
+                  height: 20.0,
                 ),
                 textformfield(
                   controller: _rainfallcontroller,
                   text: "Average Rainfall(mm)",
-                  icon: Icon(Icons.public),
+                  imagepath:
+                      Image.asset("assets/images/soilandclimatedetails.png"),
                 ),
                 SizedBox(height: 10.0),
                 textformfield(
                   controller: _temperaturecontroller,
                   text: "Temperature (°C)",
-                  icon: Icon(Icons.public),
+                  imagepath:
+                      Image.asset("assets/images/soilandclimatedetails.png"),
                 ),
                 SizedBox(height: 10.0),
                 textformfield(
                   controller: _evapotranspirationcontroller,
                   text: "Potential evapotranspiration (mm)",
-                  icon: Icon(Icons.public),
+                  imagepath:
+                      Image.asset("assets/images/soilandclimatedetails.png"),
                 ),
                 SizedBox(height: 10.0),
                 textformfield(
                   controller: _soiltypecontroller,
                   text: "Soil Type",
-                  icon: Icon(Icons.public),
+                  imagepath:
+                      Image.asset("assets/images/soilandclimatedetails.png"),
                 ),
                 SizedBox(height: 10.0),
                 textformfield(
                   controller: _cultivablelandcontroller,
                   text: "Area of Cultivable Land",
-                  icon: Icon(Icons.public),
+                  imagepath:
+                      Image.asset("assets/images/soilandclimatedetails.png"),
                 ),
                 SizedBox(height: 10.0),
                 textformfield(
                   controller: _grasslandcontroller,
                   text: "Area under Grass Land",
-                  icon: Icon(Icons.public),
+                  imagepath:
+                      Image.asset("assets/images/soilandclimatedetails.png"),
                 ),
                 SizedBox(height: 10.0),
                 textformfield(
                   controller: _fallowlandcontroller,
                   text: "Area under Fallow Land",
-                  icon: Icon(Icons.public),
+                  imagepath:
+                      Image.asset("assets/images/soilandclimatedetails.png"),
                 ),
                 SizedBox(height: 10.0),
                 GestureDetector(
                   onTap: openFilePicker,
                   child: textformfield(
-                    controller: TextEditingController(text: Filepath),
-                    text: "Select File",
-                    icon: Icon(Icons.file_upload),
+                    text: "Soil Data Document",
+                    icon: Icon(Icons.help),
+                    picon: IconButton(
+                        onPressed: () {
+                          openFilePicker();
+                        },
+                        icon: Icon(Icons.attach_file)),
+                    //     ticon: Icon(Icons.help),
                   ),
                 ),
+                Text(
+                  "File should be jpeg, jpg, pdf",
+                  style: TextStyle(
+                      color: Color.fromRGBO(149, 149, 149, 1), fontSize: 12.0),
+                ),
                 SizedBox(height: 40.0),
-                ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                        minimumSize: Size(108, 43),
-                        backgroundColor: Colors.blue,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12.0))),
-                    child: Text(
-                      "Next",
-                      style: TextStyle(color: Colors.white, fontSize: 14.0),
-                    )),
+                Center(child: custom_next_button())
               ],
             ),
           ),
