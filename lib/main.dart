@@ -1,6 +1,9 @@
+import 'package:equiblue/view/land_details.dart';
+import 'package:equiblue/view/nutrient_details.dart';
 import 'package:equiblue/view/registration_details.dart';
 import 'package:flutter/material.dart';
-void main(){
+
+void main() {
   runApp(MyApp());
 }
 
@@ -9,6 +12,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: RegistrationDetails());
+    return MaterialApp(home: NutrientDetails());
   }
 }
