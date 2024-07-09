@@ -2,10 +2,16 @@
 import 'package:flutter/material.dart';
 
 
+class Textformfield extends StatefulWidget {
+  final String text;
+  final String hintText;
+
+
 class textformfield extends StatelessWidget {
   final TextEditingController? controller;
   final String? text;
   final String? hinttext;
+
   final Icon? icon;
   final IconButton? picon;
   final Image? imagepath;
@@ -19,6 +25,19 @@ class textformfield extends StatelessWidget {
       this.imagepath});
 
 part of "../views/ownershipform.dart";
+
+
+class _TextformfieldState extends State<Textformfield> {
+// @override
+//   void initState() {
+//     super.initState();
+//     controller = TextEditingController();
+//   }
+  @override
+  void dispose() {
+    widget.controller.dispose();
+    super.dispose();
+  }
 
 class textformfield extends StatelessWidget {
   final TextEditingController? controller;
@@ -35,6 +54,7 @@ class textformfield extends StatelessWidget {
       this.picon,
       this.hinttext,
       this.imagepath});
+
 
   @override
   Widget build(BuildContext context) {
