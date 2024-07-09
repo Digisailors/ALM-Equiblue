@@ -5,7 +5,7 @@ class textformfield extends StatelessWidget {
   final String? text;
   final String? hinttext;
   final Icon? icon;
-  final IconButton? picon;  
+  final IconButton? picon;
   final Image? imagepath;
 
   textformfield(
@@ -15,6 +15,7 @@ class textformfield extends StatelessWidget {
       this.picon,
       this.hinttext,
       this.imagepath});
+
   @override
   Widget build(BuildContext context) {
     return Column(

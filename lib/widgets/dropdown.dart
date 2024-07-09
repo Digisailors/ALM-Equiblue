@@ -9,7 +9,7 @@ class dropdown extends StatefulWidget {
     super.key,
     required this.items,
     required this.text,
-   this.hintText,
+    this.hintText,
   });
 
   @override
@@ -47,8 +47,6 @@ class _dropdownState extends State<dropdown> {
                 child: Text(value),
               );
             }).toList()),
-            
-           
       ],
     );
   }

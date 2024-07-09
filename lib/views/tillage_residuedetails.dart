@@ -18,49 +18,51 @@ class _TillageResiduedetailsState extends State<TillageResiduedetails> {
     return Scaffold(
       appBar: Customappbar(),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            heading(
-              text: "Tillage/Residue Details",
-            ),
-            SizedBox(height: 20.0),
-            Padding(
-              padding: const EdgeInsets.only(left: 15.0, right: 15.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  dropdown(
-                    items: ["No-Till"],
-                    text: "Type of Tillage",
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  dropdown(
-                    items: ["Daily"],
-                    text: "Tillage frequency",
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  textformfield(
-                    controller: _tillagedepthcontroller,
-                    imagepath:
-                        Image.asset("assets/images/tillageandresidue.png"),
-                    text: "Tillage Depth",
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  dropdown(items: ["Burning"], text: "Residue Management"),
-                  SizedBox(height: 40.0),
-                  Center(child: custom_next_button()),
-                ],
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Column(
+            children: [
+              heading(
+                text: "Tillage/Residue Details",
               ),
-            ),
-          ],
+              SizedBox(height: 20.0),
+              Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    dropdown(
+                      items: ["No-Till"],
+                      text: "Type of Tillage",
+                    ),
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    dropdown(
+                      items: ["Daily"],
+                      text: "Tillage frequency",
+                    ),
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    textformfield(
+                      controller: _tillagedepthcontroller,
+                      imagepath:
+                          Image.asset("assets/images/tillageandresidue.png"),
+                      text: "Tillage Depth",
+                    ),
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    dropdown(items: ["Burning"], text: "Residue Management"),
+                    SizedBox(height: 40.0),
+                    Center(child: custom_next_button()),
+                  ],
+                ),
+            ],
+              ),
+            
+          ),
         ),
-      ),
+      
     );
   }
 }
