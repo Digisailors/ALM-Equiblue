@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class custom_next_button extends StatelessWidget {
+  String? text;
+  custom_next_button({this.text});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -16,7 +18,9 @@ class custom_next_button extends StatelessWidget {
         ),
         onPressed: () {},
         child: Text(
-          "Next",
+
+          text ?? "Next",
+
           style: TextStyle(color: Colors.white),
         ),
       ),
