@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class Textformfield extends StatefulWidget {
   final String text;
-  late final String hintText;
+  final String hintText;
   final Icon? icon;
   final Image? image;
   final TextEditingController controller;
@@ -24,11 +24,11 @@ class _TextformfieldState extends State<Textformfield> {
 //     super.initState();
 //     controller = TextEditingController();
 //   }
-//   @override
-//   void dispose() {
-//     controller.dispose();
-//     super.dispose();
-//   }
+  @override
+  void dispose() {
+    widget.controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
