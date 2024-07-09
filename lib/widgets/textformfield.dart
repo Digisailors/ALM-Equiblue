@@ -1,4 +1,6 @@
-part of "../views/ownershipform.dart";
+
+import 'package:flutter/material.dart';
+
 
 class textformfield extends StatelessWidget {
   final TextEditingController? controller;
@@ -16,6 +18,24 @@ class textformfield extends StatelessWidget {
       this.hinttext,
       this.imagepath});
 
+part of "../views/ownershipform.dart";
+
+class textformfield extends StatelessWidget {
+  final TextEditingController? controller;
+  final String? text;
+  final String? hinttext;
+  final Icon? icon;
+  final IconButton? picon;  
+  final Image? imagepath;
+
+  textformfield(
+      {this.controller,
+      this.text,
+      this.icon,
+      this.picon,
+      this.hinttext,
+      this.imagepath});
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -23,6 +43,36 @@ class textformfield extends StatelessWidget {
       children: [
         Row(
           children: [
+
+            RichText(
+              text: TextSpan(
+                  text: text ?? "Name",
+                  style: TextStyle(color: Colors.black),
+                  children: <TextSpan>[
+                    TextSpan(text: "*", style: TextStyle(color: Colors.red))
+                  ]),
+
+
+            Text(widget.text),
+            SizedBox(
+              width: 3.0,>>>>>>> main
+            ),
+            // Check if iconData is not null
+            //Icon(icon),
+            Icon(icon?.icon)
+          ],
+        ),
+        SizedBox(height: 05.0),
+        TextFormField(
+          controller: controller,
+          decoration: InputDecoration(
+
+              hintText: widget.hintText,
+              border: OutlineInputBorder(),
+              suffixIcon: widget.image
+              // suffixIcon: widget.icon,
+              ),
+        )
             RichText(
               text: TextSpan(
                   text: text ?? "Name",
@@ -40,6 +90,7 @@ class textformfield extends StatelessWidget {
         TextFormField(
           controller: controller,
           decoration: InputDecoration(
+
             suffixIcon: imagepath,
             prefixIcon: picon,
 
@@ -58,6 +109,7 @@ class textformfield extends StatelessWidget {
             border: OutlineInputBorder(),
           ),
         ),
+
       ],
     );
   }

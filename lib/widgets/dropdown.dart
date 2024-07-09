@@ -3,13 +3,17 @@ import 'package:flutter/material.dart';
 class dropdown extends StatefulWidget {
   final List<String> items;
   final String text;
+
   final String? hintText;
+
 
   dropdown({
     super.key,
     required this.items,
     required this.text,
+
     this.hintText,
+
   });
 
   @override
@@ -35,6 +39,7 @@ class _dropdownState extends State<dropdown> {
           height: 5.0,
         ),
         DropdownButtonFormField<String>(
+
             value: dropdown,
             decoration: InputDecoration(border: OutlineInputBorder()),
             hint: Text(widget.hintText ?? "Choose an option"),
@@ -47,6 +52,7 @@ class _dropdownState extends State<dropdown> {
                 child: Text(value),
               );
             }).toList()),
+
       ],
     );
   }

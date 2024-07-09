@@ -1,4 +1,10 @@
+
+
+import 'package:flutter/material.dart';
+
+
 part of "../views/ownershipform.dart";
+
 
 class heading extends StatelessWidget {
   final String? text;
