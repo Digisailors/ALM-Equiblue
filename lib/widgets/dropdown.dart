@@ -12,7 +12,7 @@ class dropdown extends StatefulWidget {
     required this.items,
     required this.text,
 
-   this.hintText,
+    this.hintText,
 
   });
 
@@ -40,7 +40,6 @@ class _dropdownState extends State<dropdown> {
         ),
         DropdownButtonFormField<String>(
 
-      
             value: dropdown,
             decoration: InputDecoration(border: OutlineInputBorder()),
             hint: Text(widget.hintText ?? "Choose an option"),
@@ -53,8 +52,6 @@ class _dropdownState extends State<dropdown> {
                 child: Text(value),
               );
             }).toList()),
-            
-           
 
       ],
     );

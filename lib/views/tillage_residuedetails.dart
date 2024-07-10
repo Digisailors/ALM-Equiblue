@@ -18,6 +18,7 @@ class _TillageResiduedetailsState extends State<TillageResiduedetails> {
     return Scaffold(
       appBar: Customappbar(),
       body: SingleChildScrollView(
+
         child: Column(
           children: [
             heading(
@@ -61,6 +62,7 @@ class _TillageResiduedetailsState extends State<TillageResiduedetails> {
           ],
         ),
       ),
+
     );
   }
 }
