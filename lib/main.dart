@@ -1,10 +1,4 @@
-
-
-import 'package:equiblue/view/grazing_details.dart';
-import 'package:equiblue/view/planting_details.dart';
-import 'package:equiblue/view/land_details.dart';
-import 'package:equiblue/view/nutrient_details.dart';
-import 'package:equiblue/view/registration_details.dart';
+import 'package:equiblue/views/Framer_Profile/suggestionslist.dart';
 import 'package:equiblue/views/irrigationdetails.dart';
 import 'package:equiblue/views/ownershipform.dart';
 import 'package:equiblue/views/soilandclimatedetails.dart';
@@ -22,14 +16,12 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-
-
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: FramerProfile1(),
+      home: Soilandclimatedetails(),
     );
   }
 }
