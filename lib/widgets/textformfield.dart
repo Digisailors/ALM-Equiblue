@@ -1,21 +1,26 @@
 import 'package:flutter/material.dart';
 
+
 class textformfield extends StatelessWidget {
   final TextEditingController? controller;
   final String? text;
   final String? hinttext;
+
   final Icon? icon;
   final IconButton? picon;
   final Image? imagepath;
 
-  textformfield({
-    this.controller,
-    this.text,
-    this.icon,
-    this.picon,
-    this.hinttext,
-    this.imagepath,
-  });
+
+  textformfield(
+      {this.controller,
+      this.text,
+      this.icon,
+      this.picon,
+      this.hinttext,
+      this.imagepath});
+
+
+
 
   @override
   Widget build(BuildContext context) {
