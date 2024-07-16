@@ -2,6 +2,8 @@ import 'package:equiblue/views/ownershipform.dart';
 import 'package:equiblue/widgets/appbar.dart';
 import 'package:equiblue/widgets/custom_next_button.dart';
 import 'package:equiblue/widgets/dropdown.dart';
+import 'package:equiblue/widgets/heading.dart';
+import 'package:equiblue/widgets/textformfield.dart';
 import 'package:flutter/material.dart';
 
 class TillageResiduedetails extends StatefulWidget {

@@ -1,6 +1,10 @@
+import 'package:equiblue/views/Framer_Profile/widgets/suggestions.dart';
+import 'package:equiblue/views/Framer_Profile/widgets/agriculturalland.dart';
 import 'package:equiblue/widgets/appbar.dart';
 import 'package:equiblue/widgets/custom_next_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+part "widgets/cropssown.dart";
 
 class FramerProfile1 extends StatefulWidget {
   FramerProfile1({Key? key}) : super(key: key);
@@ -42,10 +46,19 @@ class FramerProfile1State extends State<FramerProfile1>
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 35.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                  child: Column(
                     children: [
-                      Image.asset("assets/images/profile.png"),
+                      Text(
+                        "My Profile",
+                        style: TextStyle(color: Colors.white, fontSize: 15.0,fontWeight: FontWeight.w400),
+                      ),
+                      SizedBox(height: 8.0),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset("assets/images/profile.png"),
+                        ],
+                      ),
                     ],
                   ),
                 ),
@@ -57,13 +70,38 @@ class FramerProfile1State extends State<FramerProfile1>
             ),
             Text("BMMS ID: 5677 7888"),
             SizedBox(height: 10.0),
-            TabBar(
-              controller: _tabController,
-              tabs: [
-                Tab(text: "Overview"),
-                Tab(text: "Land Details"),
-                Tab(text: "Advice")
-              ],
+            Padding(
+              padding: const EdgeInsets.only(left: 15.0, right: 15.0),
+              child: Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20.0),
+                    border: Border.all(color: Color.fromRGBO(0, 97, 228, 1))),
+                child: TabBar(
+                  labelColor: Colors.white,
+                  unselectedLabelColor: Colors.black,
+                  indicator: BoxDecoration(
+                      color: Color.fromRGBO(0, 97, 228, 1),
+                      borderRadius: BorderRadius.circular(20.0)),
+                  controller: _tabController,
+                  tabs: [
+                    Container(
+                        child: Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Tab(text: "Overview"),
+                    )),
+                    Container(
+                        child: Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Tab(text: "Land Details"),
+                    )),
+                    Container(
+                        child: Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Tab(text: "Suggestions"),
+                    ))
+                  ],
+                ),
+              ),
             ),
             SizedBox(height: 10.0),
             SizedBox(
@@ -73,7 +111,7 @@ class FramerProfile1State extends State<FramerProfile1>
                 children: [
                   Ownershipdetails(), // Replace with your actual Overview content
                   landdetails(), // Replace with your actual Land Details content
-                  Advice(), // Replace with your actual Advice content
+                  Suggestions(), // Replace with your actual Advice content
                 ],
               ),
             ),
@@ -115,25 +153,22 @@ class OwnershipdetailsState extends State<Ownershipdetails> {
                   ],
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 15.0),
+                  padding: const EdgeInsets.only(top: 15.0, left: 10.0),
                   child: Column(
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 10.0),
-                        child: Row(
-                          children: [
-                            Image.asset("assets/images/ownershipform.png"),
-                            SizedBox(width: 20.0),
-                            Text(
-                              "Ownership Details",
-                              style: TextStyle(
-                                fontSize: 16.0,
-                                color: Color.fromRGBO(46, 55, 164, 1),
-                                fontWeight: FontWeight.bold,
-                              ),
+                      Row(
+                        children: [
+                          Image.asset("assets/images/ownershipform.png"),
+                          SizedBox(width: 20.0),
+                          Text(
+                            "Ownership Details",
+                            style: TextStyle(
+                              fontSize: 16.0,
+                              color: Color.fromRGBO(46, 55, 164, 1),
+                              fontWeight: FontWeight.bold,
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                       SizedBox(height: 10.0),
                       Divider(),
@@ -322,89 +357,16 @@ class landdetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Padding(
-      padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+        body: SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.only(top: 10.0, left: 15.0),
+        padding: const EdgeInsets.only(left: 20.0, right: 8.0, top: 10.0),
         child: Column(
           children: [
-            Container(
-                width: 350,
-                height: 200,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10.0),
-                    boxShadow: [BoxShadow(color: Colors.grey)],
-                    color: Colors.white),
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Align(
-                              child: Column(
-                                children: [
-                                  Text("Agricultural Land"),
-                                  SizedBox(height: 8.0),
-                                  RichText(
-                                    text: TextSpan(
-                                        text: "Location:",
-                                        style: TextStyle(color: Colors.black),
-                                        children: <TextSpan>[
-                                          TextSpan(
-                                              text: "12/1 South east",
-                                              style: TextStyle(
-                                                  color: Color.fromRGBO(
-                                                      12, 92, 215, 1))),
-                                        ]),
-                                  ),
-                                  SizedBox(height: 8.0),
-                                  Text("Farm Size : 0.3 Ha"),
-                                  SizedBox(height: 8.0),
-                                  Text("Soil Type : Black soil"),
-                                  SizedBox(height: 8.0),
-                                  Text(
-                                      "Irrigation Facilities : Drip Irrigation")
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 80.0),
-                              child: Column(
-                                children: [
-                                  Container(
-                                      width: 111.0,
-                                      child:
-                                          custom_next_button(text: "View Map"))
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                  // child: Table(
-                  //   columnWidths: {
-                  //     0: FixedColumnWidth(150.0),
-                  //     1: FixedColumnWidth(100.0)
-                  //   },
-                  //   children: [
-                  //     TableRow(
-                  //       children: [Text("Agricultural Land"), Text("")],
-                  //     ),
-                  //     TableRow(
-                  //       children: [
-                  //         Text(""),
-                  //         custom_next_button(text: "View Map")
-                  //       ],
-                  //     ),
-                  //   ],
-                  // )
-                )),
+            agriculturalland(text: "Farm Size : 0.3 Ha"),
+            SizedBox(
+              height: 20.0,
+            ),
+            agriculturalland(text: "Acre : 0.3")
           ],
         ),
       ),
@@ -412,10 +374,47 @@ class landdetails extends StatelessWidget {
   }
 }
 
-class Advice extends StatelessWidget {
-  Advice({super.key});
+class Suggestions extends StatelessWidget {
+  Suggestions({super.key});
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Container());
+    return Scaffold(
+        body: Padding(
+      padding: const EdgeInsets.only(left: 20.0, right: 8.0, top: 10.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Recent Suggestions",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15.0),
+          ),
+          SizedBox(
+            height: 15.0,
+          ),
+          suggestions(
+            heading: "Soil Testing",
+            status: "Pending",
+            containercolor: Color.fromRGBO(244, 234, 255, 1),
+            contentcolor: Color.fromRGBO(142, 48, 255, 1),
+          ),
+          SizedBox(
+            height: 60.0,
+          ),
+          Text(
+            "Previous Suggestions",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15.0),
+          ),
+          SizedBox(
+            height: 15.0,
+          ),
+          suggestions(
+            heading: "Drainage Improvement",
+            status: "Completed",
+            containercolor: Color.fromRGBO(226, 251, 195, 1),
+            contentcolor: Color.fromRGBO(44, 103, 8, 1),
+          ),
+        ],
+      ),
+    ));
   }
 }

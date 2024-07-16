@@ -1,10 +1,11 @@
 import 'package:equiblue/widgets/appbar.dart';
 import 'package:equiblue/widgets/custom_next_button.dart';
+import 'package:equiblue/widgets/heading.dart';
+import 'package:equiblue/widgets/textformfield.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-part "../widgets/textformfield.dart";
-part "../widgets/heading.dart";
+
 
 class Ownershipform extends StatefulWidget {
   const Ownershipform({super.key});
