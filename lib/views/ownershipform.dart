@@ -6,7 +6,6 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-
 class Ownershipform extends StatefulWidget {
   const Ownershipform({super.key});
 
@@ -27,7 +26,13 @@ class _OwnershipformState extends State<Ownershipform> {
 
   String? Filepath;
   String? selectedvalue;
-  List<String> dropdownvalue = ['Own Land'];
+  List<String> dropdownvalue = [
+    'Own Land',
+    'Leased Land',
+    'Rented Land',
+    'Government Owned',
+    'Informal Lease'
+  ];
   TextEditingController _namecontroller = TextEditingController();
   TextEditingController _locationcontroller = TextEditingController();
   TextEditingController _occupationcontroller = TextEditingController();
@@ -93,7 +98,7 @@ class _OwnershipformState extends State<Ownershipform> {
                     ),
                     DropdownButtonFormField<String>(
                         value: selectedvalue,
-                        hint: Text('Choose an option'),
+                        hint: Text('Choose Land Ownership'),
                         items: dropdownvalue.map((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
@@ -112,9 +117,27 @@ class _OwnershipformState extends State<Ownershipform> {
                 SizedBox(height: 10.0),
                 textformfield(
                   controller: _incomecontroller,
-                  text: "Income",
+                  text: "Income(per annum)",
                   imagepath: Image.asset("assets/images/ownershipform.png"),
                 ),
+                SizedBox(height: 18.0),
+                Container(
+                    height: 47,
+                    width: 374,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        border:
+                            Border.all(color: Color.fromRGBO(0, 97, 228, 1))),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.map, color: Color.fromRGBO(0, 97, 228, 1)),
+                        Text(
+                          "Land Registration",
+                          style: TextStyle(),
+                        )
+                      ],
+                    )),
                 SizedBox(height: 40.0),
                 Center(child: custom_next_button())
               ],

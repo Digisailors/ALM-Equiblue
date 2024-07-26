@@ -1,4 +1,4 @@
-import 'package:equiblue/views/Framer_Profile/framerprofile.dart';
+import 'package:equiblue/views/Farmer_Profile/farmerprofile.dart';
 import 'package:equiblue/widgets/custom_next_button.dart';
 import 'package:flutter/material.dart';
 
