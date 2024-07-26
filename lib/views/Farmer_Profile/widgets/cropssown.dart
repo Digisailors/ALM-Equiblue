@@ -1,4 +1,4 @@
-part of "../framerprofile.dart";
+part of "../farmerprofile.dart";
 
 class cropssown extends StatelessWidget {
   final String? text;

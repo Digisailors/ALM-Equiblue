@@ -1,19 +1,19 @@
-import 'package:equiblue/views/Framer_Profile/widgets/suggestions.dart';
-import 'package:equiblue/views/Framer_Profile/widgets/agriculturalland.dart';
+import 'package:equiblue/views/Farmer_Profile/widgets/suggestions.dart';
+import 'package:equiblue/views/Farmer_Profile/widgets/agriculturalland.dart';
 import 'package:equiblue/widgets/appbar.dart';
 import 'package:equiblue/widgets/custom_next_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 part "widgets/cropssown.dart";
 
-class FramerProfile1 extends StatefulWidget {
-  FramerProfile1({Key? key}) : super(key: key);
+class FarmerProfile1 extends StatefulWidget {
+  FarmerProfile1({Key? key}) : super(key: key);
 
   @override
-  State<FramerProfile1> createState() => FramerProfile1State();
+  State<FarmerProfile1> createState() => FramerProfile1State();
 }
 
-class FramerProfile1State extends State<FramerProfile1>
+class FramerProfile1State extends State<FarmerProfile1>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
